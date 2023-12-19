@@ -8,31 +8,30 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *insert, *iter;
+	int in, out;
+
+	in = 0;
+	out = 0;
 
 	if (*list == NULL || (*list)->next == NULL)
 		return;
 	insert = (*list)->next;
-	iter = insert;
 	while (insert != NULL)
 	{
+		out++;
+		iter = insert;
 		insert = insert->next;
-		while (iter && iter->prev)
+		while (iter && iter->prev && (iter->n) < (iter->prev->n))
 		{
-			if ((iter->n) < (iter->prev->n))
-			{
-				swap(iter);
-				if (iter->prev == NULL)
-					*list = iter;
-				print_list(*list);
-				if (iter->prev == NULL)
-					break;
-			}
-			else if (iter->n >= iter->prev->n)
-				break;
+			in++;
+			swap(iter);
+			if (iter->prev == NULL)
+				*list = iter;
+			print_list(*list);
 
 		}
-		iter = insert;
 	}
+	printf("%d %d", in, out);
 }
 
 /**
