@@ -8,22 +8,16 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *insert, *iter;
-	int in, out;
-
-	in = 0;
-	out = 0;
 
 	if (*list == NULL || (*list)->next == NULL)
 		return;
 	insert = (*list)->next;
 	while (insert != NULL)
 	{
-		out++;
 		iter = insert;
 		insert = insert->next;
 		while (iter && iter->prev && (iter->n) < (iter->prev->n))
 		{
-			in++;
 			swap(iter);
 			if (iter->prev == NULL)
 				*list = iter;
@@ -31,7 +25,6 @@ void insertion_sort_list(listint_t **list)
 
 		}
 	}
-	printf("%d %d", in, out);
 }
 
 /**
