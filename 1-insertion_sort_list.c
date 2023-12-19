@@ -11,10 +11,11 @@ void insertion_sort_list(listint_t **list)
 
 	if (*list == NULL || (*list)->next == NULL)
         return; 
-	insert = (*list)->next;
+	insert = (*list);
 	iter = insert;
 	while (insert != NULL)
 	{
+		insert = insert->next;
 		while (iter && iter->prev)
 		{
 			if ((iter->n) < (iter->prev->n))
@@ -30,7 +31,6 @@ void insertion_sort_list(listint_t **list)
 				break;
 
 		}
-		insert = insert->next;
 		iter = insert;
 	}
 }
