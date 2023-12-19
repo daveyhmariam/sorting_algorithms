@@ -11,7 +11,7 @@ void insertion_sort_list(listint_t **list)
 
 	if (*list == NULL || (*list)->next == NULL)
 		return;
-	insert = (*list);
+	insert = (*list)->next;
 	iter = insert;
 	while (insert != NULL)
 	{
