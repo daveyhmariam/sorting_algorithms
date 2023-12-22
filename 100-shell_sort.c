@@ -5,10 +5,13 @@ void shell_sort(int *array, size_t size)
 {
 	size_t i, j, knuth, tmp;
 
+	if (!array || size < 2)
+		return;
+
 	knuth = 1;
 	while (knuth <= size / 2)
 		knuth = knuth * 3 + 1;
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size && knuth >= 1; i++)
 		{
 			for (j = 0; (j + knuth) < size; j++)
 			{
