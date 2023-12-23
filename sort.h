@@ -28,4 +28,5 @@ void quick_sort(int *array, size_t size);
 void lumito(int *array, int low, int high, int size);
 void swap_quick(int *a, int *b);
 void shell_sort(int *array, size_t size);
+
 #endif
