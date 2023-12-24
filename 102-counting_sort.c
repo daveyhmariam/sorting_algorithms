@@ -35,7 +35,7 @@ void counting_sort(int *array, size_t size)
 			printf(", ");
 		printf("%d", freq[i]);
 	}
-	for (i = sz - 1; i >= 0; i--)
+	for (i = 0; i < sz; i++)
 	{
 		idx = freq[array[i]];
 		sorted[idx - 1] = array[i];
