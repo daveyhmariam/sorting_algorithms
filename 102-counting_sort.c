@@ -13,6 +13,8 @@ void counting_sort(int *array, size_t size)
 	int *freq, *sorted;
 	int i, idx, max;
 
+	if (size < 2)
+		return;
 	for (max = 0, i = 0; i < sz; i++)
 		if (array[i] > max)
 			max = array[i];
