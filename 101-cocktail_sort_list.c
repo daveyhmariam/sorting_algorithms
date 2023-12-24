@@ -7,22 +7,18 @@
 */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *fwd, *bwd, *nextf, *tmpf, *tmpb, *nextb, *haltf, *haltb;
-	int sw = 0, cnt = 0;
-
+	listint_t *fwd, *bwd, *nextf,  *nextb, *haltf = NULL, *haltb = NULL;
+	int sw = 0;
+	
 	if (!list || !(*list))
 		return;
-	haltf = NULL;
-	haltb = NULL;
 	fwd = (*list);
 	nextf = fwd->next;
 	while (1)
 	{
 		sw = 0;
-		/*forward pass until the next forward pointer reaches the halt point*/
 		while (fwd != haltf && nextf)
 		{
-			/*bubbling the greatest to edge*/
 			if (fwd->n > nextf->n)
 			{
 				swap(nextf);
@@ -32,7 +28,6 @@ void cocktail_sort_list(listint_t **list)
 				nextf = fwd->next;
 				sw++;
 			}
-			/*if no swap set pointers forward until halt point*/
 			else
 			{
 				fwd = fwd->next;
@@ -68,8 +63,6 @@ void cocktail_sort_list(listint_t **list)
 				nextf = fwd->next;
 			}
 		}
-		if (haltf == haltb || haltf->next == haltb || haltf->prev == haltb)
-			break;
 		if (sw == 0)
 			break;
 	}
