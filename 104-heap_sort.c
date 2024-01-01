@@ -51,10 +51,3 @@ void heapify(int *array, int parent, int base, size_t size)
 	}
 }
 
-int main()
-{
-	int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-
-	heap_sort(array, 10);
-	return (0);
-}
