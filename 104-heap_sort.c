@@ -4,7 +4,7 @@
  * heap_sort - sorting with heap-sort algorithm
  * @array: array to be sorted
  * @size: size of array
- * Return: Nothing 
+ * Return: Nothing
  */
 
 void heap_sort(int *array, size_t size)
@@ -27,9 +27,10 @@ void heap_sort(int *array, size_t size)
  * heapify - make a max heap
  * @array: array to be sorted
  * @parent: parent node
+ * @base: base index to hepify to
+ * @size: size of the whole array
  * Return: Nothing
  */
-
 void heapify(int *array, int parent, int base, size_t size)
 {
 	int chldl, chldr, tmp, max;
@@ -38,9 +39,9 @@ void heapify(int *array, int parent, int base, size_t size)
 	chldr = (parent * 2) + 2;
 	max = parent;
 	if (chldl < base)
-		max = array[parent] > array[chldl] ? parent: chldl;
+		max = array[parent] > array[chldl] ? parent : chldl;
 	if (chldr < base)
-		max = array[max] > array[chldr] ? max: chldr;
+		max = array[max] > array[chldr] ? max : chldr;
 	if (max != parent)
 	{
 		tmp = array[max];
