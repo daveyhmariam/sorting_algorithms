@@ -35,7 +35,7 @@ void split(int *array, size_t start, size_t end, int *sorting);
 void merge(int *array, size_t start, size_t end, int *sorting);
 void print_array2(int *array, size_t start, size_t end);
 void heap_sort(int *array, size_t size);
-void heapify(int *array,int base, int parent, size_t size);
+void heapify(int *array, int base, int parent, size_t size);
 void radix_sort(int *array, size_t size);
 void count_array_sort(int *array, int *sort, int rad, size_t size);
 int max(int *array, size_t size);

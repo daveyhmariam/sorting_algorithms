@@ -10,7 +10,7 @@ void radix_sort(int *array, size_t size)
 {
 	int rad, *sort, mx;
 
-	if (!array)
+	if (!array || size < 2)
 		return;
 	sort = (int *) malloc(sizeof(int) * size);
 	if (sort == NULL)
