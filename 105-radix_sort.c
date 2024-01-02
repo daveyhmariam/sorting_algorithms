@@ -37,7 +37,7 @@ void count_array_sort(int *array, int *sort, int rad, size_t size)
 	int i, idx;
 	int count[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < (int) size; i++)
 	{
 		idx = (array[i] / rad) % 10;
 		count[idx]++;
