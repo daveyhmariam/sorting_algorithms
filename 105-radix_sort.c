@@ -13,18 +13,15 @@ void radix_sort(int *array, size_t size)
 	if (!array)
 		return;
 	sort = (int *) malloc(sizeof(int) * size);
-	if (!sort)
-	{
-		free(sort);
+	if (sort == NULL)
 		return;
-	}
 	mx = max(array, size);
 	for (rad = 1; (mx / rad) > 0; rad *= 10)
 	{
 		count_array_sort(array, sort, rad, size);
 		print_array(array, size);
 	}
-
+	free(sort);
 }
 
 /**
@@ -46,7 +43,7 @@ void count_array_sort(int *array, int *sort, int rad, size_t size)
 		count[idx]++;
 	}
 	for (i = 1; i < (int) size; i++)
-		count[i] = count[i] + count[i - 1];
+		count[i] += count[i - 1];
 	for (i = (int) size - 1; i >= 0; i--)
 	{
 		idx = count[((array[i] / rad) % 10)] - 1;
