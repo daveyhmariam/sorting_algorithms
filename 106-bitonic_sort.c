@@ -11,13 +11,13 @@ void bitonic_sort(int *array, size_t size)
 {
 	int flag, *sorting;
 
-	if (!array || size % 2 != 0)
+	if (!array || size < 2)
 		return;
 	flag = 1;
 	sorting = (int *) malloc(sizeof(int) * size);
 	if (!sorting)
 		return;
-	bitonic_split(array, 0, (int)size, flag, sorting);
+	bitonic_split(array, 0, (int)size, flag, sorting, (int) size);
 	free(sorting);
 }
 
@@ -28,9 +28,11 @@ void bitonic_sort(int *array, size_t size)
  * @end: ending index
  * @flag: directional flag for ascending descending
  * @sorting: auxiliary array
+ * @size: size of array
  * Return: Nothing
  */
-void bitonic_split(int *array, int start, int end, int flag, int *sorting)
+void bitonic_split(int *array, int start, int end,
+					int flag, int *sorting, int size)
 {
 	int center;
 
@@ -38,16 +40,16 @@ void bitonic_split(int *array, int start, int end, int flag, int *sorting)
 	if (start >= end || (end - start) % 2 != 0)
 		return;
 	if (flag == 1)
-		printf("Merging [%d/16] (UP):\n", (end - start));
+		printf("Merging [%d/%d] (UP):\n", (end - start), size);
 	if (flag == 0)
-		printf("Merging [%d/16] (DOWN):\n", (end - start));
+		printf("Merging [%d/%d] (DOWN):\n", (end - start), size);
 	print_array3(array, start, end);
-	bitonic_split(array, start, (start + center), 1, sorting);
-	bitonic_split(array, (start + center), end, 0, sorting);
+	bitonic_split(array, start, (start + center), 1, sorting, size);
+	bitonic_split(array, (start + center), end, 0, sorting, size);
 	if (flag == 1)
-		up(array, start, end, sorting);
+		up(array, start, end, sorting, size);
 	if (flag == 0)
-		down(array, start, end, sorting);
+		down(array, start, end, sorting, size);
 }
 
 /**
@@ -79,10 +81,11 @@ void print_array3(int *array, int start, int end)
  * @start: starting index
  * @end: ending index
  * @sorting: auxiliary array
+ * @size: size of array
  * Return: Nothing
  */
 
-void up(int *array, int start, int end, int *sorting)
+void up(int *array, int start, int end, int *sorting, int size)
 {
 	int i, j, center, count;
 
@@ -108,7 +111,7 @@ void up(int *array, int start, int end, int *sorting)
 		}
 	for (i = 0; i < end; i++)
 		array[i] = sorting[i];
-	printf("Result [%d/16] (UP):\n", (end - start));
+	printf("Result [%d/%d] (UP):\n", (end - start), size);
 	print_array3(array, start, end);
 
 }
@@ -119,10 +122,11 @@ void up(int *array, int start, int end, int *sorting)
  * @start: starting index
  * @end: ending index
  * @sorting: auxiliary array
+ * @size: size of array
  * Return: Nothing
  */
 
-void down(int *array, int start, int end, int *sorting)
+void down(int *array, int start, int end, int *sorting, int size)
 {
 	int i, j, center, count;
 
@@ -151,6 +155,6 @@ void down(int *array, int start, int end, int *sorting)
 		}
 	for (i = 0; i < end; i++)
 		array[i] = sorting[i];
-	printf("Result [%d/16] (DOWN):\n", (end - start));
+	printf("Result [%d/%d] (DOWN):\n", (end - start), size);
 	print_array3(array, start, end);
 }

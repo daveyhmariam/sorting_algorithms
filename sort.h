@@ -40,8 +40,9 @@ void radix_sort(int *array, size_t size);
 void count_array_sort(int *array, int *sort, int rad, size_t size);
 int max(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
-void bitonic_split(int *array, int start, int end, int flag, int *sorting);
+void bitonic_split(int *array, int start, int end,
+					int flag, int *sorting, int size);
 void print_array3(int *array, int start, int end);
-void up(int *array, int start, int end, int *sorting);
-void down(int *array, int start, int end, int *sorting);
+void up(int *array, int start, int end, int *sorting, int size);
+void down(int *array, int start, int end, int *sorting, int size);
 #endif
