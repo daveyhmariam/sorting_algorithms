@@ -31,8 +31,7 @@ void hoare(int *array, int start, int end, size_t size)
 		return;
 	pivot = end;
 	i = start;
-	j = end - 1;
-	printf("start: %d  end: %d\n", start, end);
+	j = end;
 	while (i < j)
 	{
 		while (array[i] <= array[pivot] && i < end)
