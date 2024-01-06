@@ -45,4 +45,7 @@ void bitonic_split(int *array, int start, int end,
 void print_array3(int *array, int start, int end);
 void up(int *array, int start, int end, int *sorting, int size);
 void down(int *array, int start, int end, int *sorting, int size);
+void quick_sort_hoare(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+void hoare(int *array, int i, int j, size_t size);
 #endif
