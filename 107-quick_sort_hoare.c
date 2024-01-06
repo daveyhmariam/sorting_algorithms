@@ -18,7 +18,7 @@ void quick_sort_hoare(int *array, size_t size)
  * hoare - recursive function to perform hoare partitioning
  * @array: array to be sorted
  * @start: lower index
- * @j: higher index
+ * @end: higher index
  * @size: size of array
  * Return: Nothing
  */
