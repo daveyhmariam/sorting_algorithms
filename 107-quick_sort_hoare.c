@@ -29,30 +29,25 @@ void hoare(int *array, int start, int end, size_t size)
 
 	if (end <= start)
 		return;
-	pivot = end;
+	pivot = array[end];
 	i = start;
 	j = end;
 	while (i < j)
 	{
-		while (array[i] <= array[pivot] && i < end)
+		while (array[i] < pivot)
 			i++;
-		while (array[j] > array[pivot] && j > start)
-			j++;
+		while (array[j] > pivot)
+			j--;
+		printf("before i: %d  j: %d\n", i, j);
 		if (i < j)
 		{
 			tmp = array[i];
-			array[i] = array[j];
-			array[j] = tmp;
+			array[i++] = array[j];
+			array[j--] = tmp;
 			print_array(array, size);
 		}
-		if (i > j)
-		{
-			tmp = array[i];
-			array[i] = array[pivot];
-			array[pivot] = tmp;
-			print_array(array, size);
-		}
+		printf("After i: %d  j: %d\n", i, j);
 	}
 	hoare(array, start, i - 1, size);
-	hoare(array, i + 1, end, size);
+	hoare(array, i, end, size);
 }
