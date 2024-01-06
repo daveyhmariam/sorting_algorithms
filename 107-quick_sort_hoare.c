@@ -42,8 +42,8 @@ void hoare(int *array, int start, int end, size_t size)
 		if (i < j)
 		{
 			tmp = array[i];
-			array[i++] = array[j];
-			array[j--] = tmp;
+			array[i] = array[j];
+			array[j] = tmp;
 			print_array(array, size);
 		}
 		printf("After i: %d  j: %d\n", i, j);
